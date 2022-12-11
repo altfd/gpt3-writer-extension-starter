@@ -34,13 +34,15 @@ const generate = async (prompt) => {
 const generateCompletionAction = async (info) => {
   try {
     const { selectionText } = info;
-    const BasePrompPrefix = `Write me a detailed table of contents for a blog post with the title below.
+    const basePromptPrefix = `Write me a detailed table of contents for a blog post with the title below.
 
         Title:
         `;
     const baseCompletion = await generate(
       `${basePromptPrefix}${selectionText}`
     );
+
+    console.log(baseCompletion.text);
   } catch (error) {
     console.log(error);
   }
